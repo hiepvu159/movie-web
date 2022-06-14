@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .header{
+        @apply flex justify-between bg-zinc-900 h-32;
+    }
+    .header-left{
+        @apply flex;
+    }
+    .header-logo{
+        @apply h-32 py-5 pl-20;
+    }
+    .header-name{
+        @apply text-4xl font-logo text-white py-12 ;
+    }
+    .header-category{
+        @apply  py-14 px-10;
+
+    }
+    .category-item{
+        @apply text-white px-5 hover:underline
+    }
+   
+}

@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .card {
+    @apply w-60 h-96 my-6 mx-8 bg-zinc-600 rounded overflow-hidden shadow-lg;
+  }
+  .card-image {
+    @apply w-full;
+  }
+  .card-desc {
+    @apply px-6 py-4;
+  }
+  .card-name {
+    @apply font-bold text-xl mb-2;
+  }
+  .card-info {
+    @apply text-base;
+  }
+  .card-note {
+    @apply px-6 pt-4 pb-2;
+  }
+  .card-category {
+    @apply bg-gray-200 rounded-full px-2 py-1  text-black;
+  }
+}
