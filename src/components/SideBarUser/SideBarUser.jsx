@@ -1,6 +1,6 @@
 import React from "react";
-import "./SideBar.css";
-function SideBar() {
+import "./SideBarUser.css";
+function SideBarUser() {
   return (
     <div className="sidebar">
       <h1 className="sidebar-title">Phim HOT</h1>
@@ -104,4 +104,4 @@ function SideBar() {
   );
 }
 
-export default SideBar;
+export default SideBarUser;

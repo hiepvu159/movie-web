@@ -4,7 +4,7 @@ module.exports = {
     extend: {
       fontFamily: {
         logo: ["Chakra Petch", "sans-serif"],
-        sans: ["Roboto", "sans-serif"],
+        sans: ["Inter", "sans-serif"],
       },
     },
   },

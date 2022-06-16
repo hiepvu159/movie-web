@@ -34,7 +34,7 @@ function Card() {
       <div class="card">
         <img
           class="card-image"
-          src="https://v1.tailwindcss.com/img/card-top.jpg"
+          src="https://upload.wikimedia.org/wikipedia/vi/b/b4/Poster_phim_7_thi_th%E1%BB%83.jpg"
           alt="Phim"
         />
         <div class="card-desc">
@@ -48,7 +48,7 @@ function Card() {
       <div class="card">
         <img
           class="card-image"
-          src="https://v1.tailwindcss.com/img/card-top.jpg"
+          src="https://i.imgur.com/plLvz9w.jpg"
           alt="Phim"
         />
         <div class="card-desc">

@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .homeuser {
+    @apply bg-zinc-800;
+  }
+  .homeuser-recom {
+    @apply pl-12 pt-5 mb-4 bg-zinc-800 font-logo text-4xl;
+  }
+  .homeuser-container {
+    @apply flex bg-zinc-800;
+  }
+  .container-list {
+    @apply flex flex-wrap w-3/4 px-4;
+  }
+  .container-list-item {
+    @apply col-span-2;
+  }
+}

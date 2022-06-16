@@ -4,16 +4,16 @@
 
 @layer components {
   .card {
-    @apply w-48 h-[26rem] my-6 mx-4 bg-zinc-600 rounded overflow-hidden shadow-lg;
+    @apply w-48 h-[26rem] my-6 mx-4 bg-zinc-700 rounded overflow-hidden shadow-lg;
   }
   .card-image {
     @apply w-full h-3/5;
   }
   .card-desc {
-    @apply h-[7.3rem] px-1 py-4;
+    @apply h-[7.3rem] px-2 py-4;
   }
   .card-name {
-    @apply font-medium text-lg mb-2;
+    @apply font-medium text-lg mb-2 overflow-hidden;
   }
   .card-info {
     @apply text-base;

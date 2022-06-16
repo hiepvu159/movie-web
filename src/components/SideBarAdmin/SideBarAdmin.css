@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .sidebar-admin {
+    @apply w-[22rem] h-screen bg-gray-900;
+  }
+  .sidebar-admin-banner {
+    @apply flex px-8 py-5;
+  }
+  .admin-logo {
+    @apply w-24;
+  }
+  .sidebar-admin-category {
+    @apply mt-5;
+  }
+  .admin-title {
+    @apply font-logo tracking-widest pl-1 mt-7 font-black text-2xl;
+  }
+  .admin-category {
+    @apply flex py-7 px-3 text-gray-400 hover:bg-gray-600 cursor-pointer;
+  }
+  .admin-category-icon {
+    @apply h-5 w-5 mx-3 text-gray-400;
+  }
+}
