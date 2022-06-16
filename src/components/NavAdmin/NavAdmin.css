@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .nav-admin {
+    @apply w-full h-full px-6 py-3 h-16 bg-white flex justify-between text-center;
+  }
+  .nav-icon {
+    @apply w-5 h-5 text-gray-500 dark:text-gray-400;
+  }
+  .admin-avatar {
+    @apply w-10 h-full object-cover rounded-full;
+  }
+  .admin-logout {
+    @apply text-black w-full h-full pl-4;
+  }
+}
