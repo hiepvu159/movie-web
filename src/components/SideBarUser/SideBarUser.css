@@ -3,16 +3,25 @@
 @tailwind utilities;
 
 @layer components {
+  .sidebar {
+    @apply w-1/4 py-3 bg-zinc-600;
+  }
+  .sidebar-item {
+    @apply w-full;
+  }
   .sidebar-title {
-    @apply font-logo text-2xl pl-4;
+    @apply font-logo text-2xl w-full pl-4;
   }
   .sidebar-item {
     @apply flex p-2;
   }
   .sidebar-item-image {
-    @apply object-contain h-20 px-4;
+    @apply object-contain h-20 px-2;
   }
   .sidebar-item-des {
-    @apply flex flex-col;
+    @apply flex flex-col justify-between;
+  }
+  .sidebar-item-rating {
+    @apply order-last;
   }
 }

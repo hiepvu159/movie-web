@@ -4,7 +4,7 @@ import "./Search.css";
 function Search() {
   return (
     <form className="search">
-      <div class="search-form">
+      <div className="search-form">
         <input
           type="search"
           id="default-search"
@@ -12,7 +12,7 @@ function Search() {
           placeholder="Search Films..."
           required
         />
-        <button type="submit" class="btn-search">
+        <button type="submit" className="btn-search">
           Search
         </button>
       </div>

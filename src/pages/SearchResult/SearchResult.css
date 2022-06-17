@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 @layer components {
-  .homeuser-recom {
+  .search-title {
     @apply pl-[5.5rem] pt-5 mb-4 bg-zinc-800 font-logo text-4xl;
   }
-  .homeuser-container {
+  .search-content {
     @apply bg-zinc-800;
   }
-  .container-list {
+  .search-content-list {
     @apply flex flex-wrap justify-start px-[4.6rem];
   }
-  .container-list-item {
+  .content-list-item {
     @apply col-span-2;
   }
 }

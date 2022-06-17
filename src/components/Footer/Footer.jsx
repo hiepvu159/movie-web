@@ -6,37 +6,37 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-nav">
-        <a href="#" class="flex items-center mb-4 sm:mb-0">
-          <img src={logo} class="footer-logo" alt="Movie Logo" />
+        <a href="#" className="flex items-center mb-4 sm:mb-0">
+          <img src={logo} className="footer-logo" alt="Movie Logo" />
           <span className="footer-name">Movie</span>
         </a>
         <ul className="footer-ul">
           <li>
-            <a href="#" class="footer-info ">
+            <a href="#" className="footer-info ">
               About
             </a>
           </li>
           <li>
-            <a href="#" class="footer-info">
+            <a href="#" className="footer-info">
               Privacy Policy
             </a>
           </li>
           <li>
-            <a href="#" class="footer-info ">
+            <a href="#" className="footer-info ">
               Licensing
             </a>
           </li>
           <li>
-            <a href="#" class="footer-info">
+            <a href="#" className="footer-info">
               Contact
             </a>
           </li>
         </ul>
       </div>
-      <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-      <span class="footer-last">
+      <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+      <span className="footer-last">
         © 2022{" "}
-        <a href="#" class="hover:underline">
+        <a href="#" className="hover:underline">
           Movie
         </a>
         . All Rights Reserved.

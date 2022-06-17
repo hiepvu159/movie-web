@@ -1,5 +1,6 @@
 import React from "react";
 import "./SideBarUser.css";
+
 function SideBarUser() {
   return (
     <div className="sidebar">
@@ -11,8 +12,10 @@ function SideBarUser() {
           alt="poster"
         />
         <div className="sidebar-item-des">
-          <span className="sidebar-item-name">Tên phim</span>
-          <span className="sidebar-item-name">Tên phim</span>
+          <span className="sidebar-item-name">
+            Tên phimdad asdasd as dadas dasd
+          </span>
+
           <span className="sidebar-item-rating">Rating</span>
         </div>
       </div>
@@ -24,7 +27,7 @@ function SideBarUser() {
         />
         <div className="sidebar-item-des">
           <span className="sidebar-item-name">Tên phim</span>
-          <span className="sidebar-item-name">Tên phim</span>
+
           <span className="sidebar-item-rating">Rating</span>
         </div>
       </div>
@@ -36,7 +39,7 @@ function SideBarUser() {
         />
         <div className="sidebar-item-des">
           <span className="sidebar-item-name">Tên phim</span>
-          <span className="sidebar-item-name">Tên phim</span>
+
           <span className="sidebar-item-rating">Rating</span>
         </div>
       </div>
@@ -48,7 +51,7 @@ function SideBarUser() {
         />
         <div className="sidebar-item-des">
           <span className="sidebar-item-name">Tên phim</span>
-          <span className="sidebar-item-name">Tên phim</span>
+
           <span className="sidebar-item-rating">Rating</span>
         </div>
       </div>
@@ -60,7 +63,7 @@ function SideBarUser() {
         />
         <div className="sidebar-item-des">
           <span className="sidebar-item-name">Tên phim</span>
-          <span className="sidebar-item-name">Tên phim</span>
+
           <span className="sidebar-item-rating">Rating</span>
         </div>
       </div>
@@ -72,7 +75,18 @@ function SideBarUser() {
         />
         <div className="sidebar-item-des">
           <span className="sidebar-item-name">Tên phim</span>
-          <span className="sidebar-item-name">Tên phim</span>
+
+          <span className="sidebar-item-rating">Rating</span>
+        </div>
+      </div>
+      <div className="sidebar-item">
+        <img
+          src="https://innovavietnam.vn/wp-content/uploads/poster-561x800.jpg"
+          className="sidebar-item-image"
+          alt="poster"
+        />
+        <div className="sidebar-item-des">
+          <span className="sidebar-item-name">modaod aodoas</span>
           <span className="sidebar-item-rating">Rating</span>
         </div>
       </div>
@@ -84,19 +98,7 @@ function SideBarUser() {
         />
         <div className="sidebar-item-des">
           <span className="sidebar-item-name">Tên phim</span>
-          <span className="sidebar-item-name">Tên phim</span>
-          <span className="sidebar-item-rating">Rating</span>
-        </div>
-      </div>
-      <div className="sidebar-item">
-        <img
-          src="https://innovavietnam.vn/wp-content/uploads/poster-561x800.jpg"
-          className="sidebar-item-image"
-          alt="poster"
-        />
-        <div className="sidebar-item-des">
-          <span className="sidebar-item-name">Tên phim</span>
-          <span className="sidebar-item-name">Tên phim</span>
+
           <span className="sidebar-item-rating">Rating</span>
         </div>
       </div>

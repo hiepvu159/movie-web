@@ -4,6 +4,6 @@
 
 @layer base {
   html {
-    @apply font-sans text-white;
+    @apply font-sans text-white bg-zinc-800;
   }
 }

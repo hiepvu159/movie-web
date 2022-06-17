@@ -1,19 +1,20 @@
 import React from "react";
-import "./Header.css";
+import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
+import "./Header.css";
 
 function Header() {
   return (
     <header className="header">
       <div className="header-left">
-        <img src={logo} class="header-logo" alt="Movie Logo" />
+        <img src={logo} className="header-logo" alt="Movie Logo" />
         <h1 className="header-name">Movie</h1>
       </div>
 
-      <div class="header-category">
-        <a href="#" className="category-item">
+      <div className="header-category">
+        <Link to="/" className="category-item">
           Trang chủ
-        </a>
+        </Link>
         <a href="#" className="category-item">
           Thể loại
         </a>
@@ -26,9 +27,9 @@ function Header() {
         <a href="#" className="category-item">
           Phim chiếu rạp
         </a>
-        <a href="#" className="category-item">
+        <Link to="/login" className="category-item">
           Đăng nhập
-        </a>
+        </Link>
       </div>
     </header>
   );
