@@ -3,14 +3,11 @@
 @tailwind utilities;
 
 @layer components {
-  .homeuser-recom {
-    @apply pl-[5.5rem] pt-5 mb-4 bg-zinc-800 font-logo text-4xl;
-  }
-  .homeuser-container {
-    @apply bg-zinc-800;
+  .homeuser-movies {
+    @apply pl-4 pt-5 font-logo text-4xl;
   }
   .container-list {
-    @apply flex flex-wrap justify-start px-[4.6rem];
+    @apply flex flex-wrap justify-start w-full overflow-x-auto;
   }
   .container-list-item {
     @apply col-span-2;

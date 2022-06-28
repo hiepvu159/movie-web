@@ -1,8 +1,7 @@
 import React from "react";
 import { HiOutlineSearch, HiOutlineLogout } from "react-icons/hi";
-import "./NavAdmin.css";
 
-function NavAdmin() {
+function HeaderAdmin() {
   return (
     <nav className="nav-admin">
       <form>
@@ -32,4 +31,4 @@ function NavAdmin() {
   );
 }
 
-export default NavAdmin;
+export default HeaderAdmin;

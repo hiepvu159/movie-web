@@ -1,22 +1,24 @@
 import { Routes, Route } from "react-router-dom";
-import HomeUser from "./pages/HomeUser/HomeUser";
+import HomeUser from "./pages/HomeUser";
 import "./App.css";
-import Login from "./pages/Login/Login";
-import LandingPage from "./pages/LandingPage/LandingPage";
-import MoviePage from "./pages/MoviePage/MoviePage";
+import Login from "./pages/Login";
+import LandingPage from "./pages/LandingPage";
+import MoviePage from "./pages/MoviePage";
+import Layout from "./layout/Layout";
+import AllMovie from "./pages/AllMovie";
 
 function App() {
   return (
     <div className="App">
-      <>
-        {/* <MoviePage /> */}
+      <Layout>
         <Routes>
-          <Route path="/" element={<HomeUser />} />
+          <Route index element={<HomeUser />} />
+          <Route path="/movies" element={<AllMovie />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/phim" element={<LandingPage />} />
-          <Route path="/phim/test" element={<MoviePage />} />
+          <Route path="/movie/id" element={<LandingPage />} />
+          <Route path="/movie/id/watch" element={<MoviePage />} />
         </Routes>
-      </>
+      </Layout>
     </div>
   );
 }

@@ -1,65 +1,48 @@
 import React from "react";
 import ReactHlsPlayer from "react-hls-player";
+import { FaRegLightbulb } from "react-icons/fa";
 import PropTypes from "prop-types";
-import Header from "../../components/Header/Header";
-import Search from "../../components/Search/Search";
-import Footer from "../../components/Footer/Footer";
-import SideBarUser from "../../components/SideBarUser/SideBarUser";
+import SideBarUser from "../../components/SideBarUser";
+import InfoMovie from "../../components/InfoMovie";
+import CommentBox from "../../components/CommentBox";
+
 import "./MoviePage.css";
 MoviePage.propTypes = {};
 
 function MoviePage(props) {
   return (
     <>
-      <Header />
-      <Search />
+      <InfoMovie />
       <div className="main">
         <div className="main-content">
-          <div className="movie-info">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/vi/b/b4/Poster_phim_7_thi_th%E1%BB%83.jpg"
-              alt="poster"
-              className="movie-poster"
+          <div className="movie-player">
+            <ReactHlsPlayer
+              src="https://kd.hd-bophim.com/20220621/15089_6a803cec/index.m3u8"
+              autoPlay={false}
+              controls={true}
             />
-            <div className="movie-desc">
-              <span className="movie-title">Ten Phim</span>
-              <span className="movie-summary">Tom Tat</span>
-            </div>
           </div>
 
-          <ReactHlsPlayer
-            src="https://kd.hd-bophim.com/20220616/14727_b65c0f25/index.m3u8"
-            autoPlay={false}
-            controls={true}
-            className="movie-player"
-          />
-
           <div className="user-action">
-            <button type="button">Tat den</button>
-            <div className="action-rating">Vote ***********</div>
+            <div className="btn-turnoff">
+              <FaRegLightbulb />
+              <button type="button">Tắt đèn</button>
+            </div>
+            <div className="action-rating">Rating</div>
           </div>
           <div className="movie-episodes">
             <span className="movie-episodes-title">Chọn tập phim</span>
             <div className="movie-episodes-list">
-              <a href="#" className="movie-episodes-item">
-                1
-              </a>
-              <a href="#" className="movie-episodes-item">
-                2
-              </a>
-              <a href="#" className="movie-episodes-item">
-                3
-              </a>
-              <a href="#" className="movie-episodes-item">
-                4
-              </a>
+              <button className="movie-episodes-item">1</button>
+              <button className="movie-episodes-item">2</button>
+              <button className="movie-episodes-item">3</button>
+              <button className="movie-episodes-item">4</button>
             </div>
           </div>
-          <div className="movie-comment">comment</div>
+          <CommentBox />
         </div>
         <SideBarUser />
       </div>
-      <Footer />
     </>
   );
 }

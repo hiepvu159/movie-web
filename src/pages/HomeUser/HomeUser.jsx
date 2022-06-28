@@ -1,25 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Footer from "../../components/Footer/Footer";
-import Header from "../../components/Header/Header";
-import Card from "../../components/Card/Card";
-import Search from "../../components/Search/Search";
-import "./HomeUser.css";
+import Search from "../../components/Search";
+import ListCard from "../../components/ListCard";
+import Banner from "../../components/Banner";
 
 HomeUser.propTypes = {};
 
 function HomeUser(props) {
   return (
     <>
-      <Header />
-      <Search />
-      <h1 className="homeuser-recom">Phim Mới</h1>
-      <div className="homeuser-container">
-        <div className="container-list">
-          <Card className="container-list-item" />
-        </div>
+      <Banner />
+      <h1 className="homeuser-movies">Phim Lẻ</h1>
+      <div className="container-list">
+        <ListCard className="container-list-item" />
       </div>
-      <Footer />
+      <h1 className="homeuser-movies">Phim Bộ</h1>
+      <div className="container-list">
+        <ListCard className="container-list-item" />
+      </div>
+      <h1 className="homeuser-movies">Phim Chiếu Rạp</h1>
+      <div className="container-list">
+        <ListCard className="container-list-item" />
+      </div>
     </>
   );
 }

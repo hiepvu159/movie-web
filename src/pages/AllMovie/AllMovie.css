@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .movie-main {
+    @apply flex py-5 px-6;
+  }
+  .filter {
+    @apply w-1/3 text-5xl;
+  }
+  .movie-list {
+    @apply flex flex-wrap justify-between pr-4;
+  }
+}

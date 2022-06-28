@@ -1,5 +1,4 @@
 import React from "react";
-import "./Search.css";
 
 function Search() {
   return (
@@ -9,12 +8,10 @@ function Search() {
           type="search"
           id="default-search"
           className="search-box"
-          placeholder="Search Films..."
-          required
+          placeholder="Điền tên phim muốn tìm kiếm. . . . "
+          autocomplete="off"
         />
-        <button type="submit" className="btn-search">
-          Search
-        </button>
+        <button className="btn-search">Search</button>
       </div>
     </form>
   );

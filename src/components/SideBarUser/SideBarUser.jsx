@@ -1,5 +1,4 @@
 import React from "react";
-import "./SideBarUser.css";
 
 function SideBarUser() {
   return (
@@ -12,9 +11,7 @@ function SideBarUser() {
           alt="poster"
         />
         <div className="sidebar-item-des">
-          <span className="sidebar-item-name">
-            Tên phimdad asdasd as dadas dasd
-          </span>
+          <span className="sidebar-item-name">Tên phim</span>
 
           <span className="sidebar-item-rating">Rating</span>
         </div>

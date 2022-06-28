@@ -1,12 +1,13 @@
 import React from "react";
 import logo from "../../assets/logo.png";
+
 import {
   HiOutlineChartBar,
   HiOutlineUserGroup,
   HiOutlineFilm,
   HiOutlineServer,
 } from "react-icons/hi";
-import "./SideBarAdmin.css";
+import { Link } from "react-router-dom";
 
 function SideBarAdmin() {
   return (
@@ -29,8 +30,10 @@ function SideBarAdmin() {
           <span className="">Quản lý danh mục phim</span>
         </div>
         <div className="admin-category">
-          <HiOutlineFilm className="admin-category-icon" />
-          <span className="">Quản lý danh sách phim</span>
+          <Link to="/admin/movie">
+            <HiOutlineFilm className="admin-category-icon" />
+            <span className="">Quản lý danh sách phim</span>
+          </Link>
         </div>
       </div>
     </nav>

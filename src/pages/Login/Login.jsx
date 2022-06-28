@@ -1,32 +1,71 @@
 import React from "react";
 import PropTypes from "prop-types";
 import logo from "../../assets/logo.png";
-import { IoLogoFacebook } from "react-icons/io";
-import { FcGoogle } from "react-icons/fc";
+import ButtonGoogle from "../../components/ButtonGoogle";
+import ButtonFaceBook from "../../components/ButtonFacebook";
 import "./Login.css";
 
 Login.propTypes = {};
 
 function Login(props) {
   return (
-    <div className="login-wrapper">
-      <div className="login-card">
-        <img src={logo} alt="logo" className="login-logo" />
-        <span className="login-card-title">Đăng nhập vào Movie</span>
-        <div className="login-card-social">
-          <button className="btn-login-social">
-            <div className="login-social-info">
-              <FcGoogle className="login-icon" />
-              <span className="login-social-title">Continue with Google</span>
-            </div>
-          </button>
+    <div className="login">
+      <div className="login-main">
+        <div className="login-main-bg">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+            className="bg"
+            alt="Sample image"
+          />
+        </div>
+        <div className="login-main-form">
+          <form>
+            <div className="login-social">
+              <p className="login-social-text">Sign in with</p>
+              <ButtonFaceBook />
 
-          <button className="btn-login-social">
-            <div className="login-social-info">
-              <IoLogoFacebook className="login-icon icon-facebook" />
-              <span className="login-social-title">Continue with Facebook</span>
+              <ButtonGoogle />
             </div>
-          </button>
+
+            <div className="separate">
+              <p className="separate-text">Or</p>
+            </div>
+
+            <div className="login-form">
+              <input
+                type="text"
+                className="form-email"
+                placeholder="Email address"
+                autoComplete="user-name"
+              />
+            </div>
+
+            <div className="login-form">
+              <input
+                type="password"
+                className="form-password"
+                placeholder="Password"
+                autoComplete="current-password"
+              />
+            </div>
+            <div className="login-action">
+              <div>
+                <input type="checkbox" className="form-checkbox" />
+                <label className="form-checkbox-text">Remember me</label>
+              </div>
+              <a href="#!">Forgot password?</a>
+            </div>
+
+            <div className="action-login">
+              <button className="btn-login">Login</button>
+              <p className="login-text">
+                Don't have an account?
+                <a href="#!" className="login-register">
+                  Register
+                </a>
+              </p>
+            </div>
+          </form>
         </div>
       </div>
     </div>
