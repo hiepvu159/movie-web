@@ -17,17 +17,8 @@ function Header() {
               Trang chủ
             </Link>
             <Link to="/movies" className="category-item">
-              Tổng hợp
+              Phim
             </Link>
-            <a href="#" className="category-item">
-              Phim bộ
-            </a>
-            <a href="#" className="category-item">
-              Phim lẻ
-            </a>
-            <a href="#" className="category-item">
-              Phim chiếu rạp
-            </a>
           </div>
         </div>
         <Link to="/login" className="header-login">

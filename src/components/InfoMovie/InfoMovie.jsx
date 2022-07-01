@@ -20,9 +20,14 @@ function InfoMovie(props) {
         />
         <div className="content-info">
           <div className="content-info-movie">
-            <section className="content-name">
-              Phù Thủy Tối Thượng Trong Đa Vũ Trụ Hỗn Loạn
-            </section>
+            <div className="name-movie">
+              <section className="content-name">
+                Phù Thủy Tối Thượng Trong Đa Vũ Trụ Hỗn Loạn
+              </section>
+              <section className="content-origin_name">
+                Doctor Strange in the Multiverse of Madness
+              </section>
+            </div>
             <section className="content-text">Thời lượng: 120 phút</section>
 
             <section className="content-text">Danh mục: Phim chiếu rạp</section>

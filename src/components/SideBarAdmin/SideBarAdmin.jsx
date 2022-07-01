@@ -27,14 +27,14 @@ function SideBarAdmin() {
         </div>
         <div className="admin-category">
           <HiOutlineServer className="admin-category-icon" />
-          <span className="">Quản lý danh mục phim</span>
+          <span className="">Quản lý danh mục</span>
         </div>
-        <div className="admin-category">
-          <Link to="/admin/movie">
+        <Link to="/admin/movie">
+          <div className="admin-category">
             <HiOutlineFilm className="admin-category-icon" />
             <span className="">Quản lý danh sách phim</span>
-          </Link>
-        </div>
+          </div>
+        </Link>
       </div>
     </nav>
   );

@@ -12,4 +12,7 @@
   .movie-list {
     @apply flex flex-wrap justify-between pr-4;
   }
+  /* .filter {
+    @apply;
+  } */
 }

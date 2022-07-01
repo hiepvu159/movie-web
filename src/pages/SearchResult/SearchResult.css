@@ -4,15 +4,12 @@
 
 @layer components {
   .search-title {
-    @apply pl-[5.5rem] pt-5 mb-4 bg-zinc-800 font-logo text-4xl;
-  }
-  .search-content {
-    @apply bg-zinc-800;
+    @apply pl-[5.9rem] pt-5 mb-4 font-bold text-4xl;
   }
   .search-content-list {
-    @apply flex flex-wrap justify-start px-[4.6rem];
+    @apply flex flex-wrap justify-start px-[5.9rem];
   }
-  .content-list-item {
-    @apply col-span-2;
+  .search-item {
+    @apply px-5;
   }
 }

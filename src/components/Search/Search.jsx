@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Search() {
   return (
@@ -11,7 +12,9 @@ function Search() {
           placeholder="Điền tên phim muốn tìm kiếm. . . . "
           autocomplete="off"
         />
-        <button className="btn-search">Search</button>
+        <Link to="/results/movie" className="btn-search">
+          Search
+        </Link>
       </div>
     </form>
   );

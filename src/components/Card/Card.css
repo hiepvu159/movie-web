@@ -4,7 +4,7 @@
 
 @layer components {
   .card {
-    @apply relative flex-shrink-0 w-[9.5rem] h-[20rem] mx-3 my-6 shadow-lg;
+    @apply relative flex-shrink-0 w-[9.5rem] h-[20rem] rounded-lg mx-3 my-6 shadow-2xl;
   }
   .card-image {
     @apply w-full h-56 rounded-t-lg;

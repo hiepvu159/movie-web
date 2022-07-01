@@ -1,5 +1,6 @@
 import React from "react";
-import { HiOutlineSearch, HiOutlineLogout } from "react-icons/hi";
+import { HiOutlineSearch } from "react-icons/hi";
+import { FaPowerOff } from "react-icons/fa";
 
 function HeaderAdmin() {
   return (
@@ -14,6 +15,7 @@ function HeaderAdmin() {
             id="default-search"
             className="block p-2 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Search"
+            autoComplete="off"
           />
         </div>
       </form>
@@ -23,8 +25,9 @@ function HeaderAdmin() {
           alt="admin-avatar"
           className="admin-avatar"
         />
+
         <button type="button">
-          <HiOutlineLogout className="admin-logout" />
+          <FaPowerOff className="admin-logout" />
         </button>
       </div>
     </nav>

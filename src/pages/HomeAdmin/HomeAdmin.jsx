@@ -1,15 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
-import HeaderAdmin from "../../components/HeaderAdmin/HeaderAdmin";
-import SidebarAdmin from "../../components/SideBarAdmin/SideBarAdmin";
+import Admin from "../../layout/LayoutAdmin/Admin";
+
+import SideBarAdmin from "../../components/SideBarAdmin";
+import HeaderAdmin from "../../components/HeaderAdmin";
 
 HomeAdmin.propTypes = {};
 
 function HomeAdmin(props) {
   return (
-    <div className="home-admin">
+    <div className="flex">
+      <SideBarAdmin />
       <HeaderAdmin />
-      <SidebarAdmin />
+      {/* <div className="flex flex-col w-full">
+       
+      </div> */}
     </div>
   );
 }

@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import logo from "../../assets/logo.png";
+import login from "../../assets/login.png";
+
 import ButtonGoogle from "../../components/ButtonGoogle";
 import ButtonFaceBook from "../../components/ButtonFacebook";
 import "./Login.css";
+import { Link } from "react-router-dom";
 
 Login.propTypes = {};
 
@@ -12,30 +14,26 @@ function Login(props) {
     <div className="login">
       <div className="login-main">
         <div className="login-main-bg">
-          <img
-            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-            className="bg"
-            alt="Sample image"
-          />
+          <img src={login} className="bg" alt="Sample image" />
         </div>
         <div className="login-main-form">
           <form>
             <div className="login-social">
-              <p className="login-social-text">Sign in with</p>
+              <p className="login-social-text">Đăng nhập bằng</p>
               <ButtonFaceBook />
 
               <ButtonGoogle />
             </div>
 
             <div className="separate">
-              <p className="separate-text">Or</p>
+              <p className="separate-text">Hoặc</p>
             </div>
 
             <div className="login-form">
               <input
                 type="text"
                 className="form-email"
-                placeholder="Email address"
+                placeholder="Email..."
                 autoComplete="user-name"
               />
             </div>
@@ -44,25 +42,25 @@ function Login(props) {
               <input
                 type="password"
                 className="form-password"
-                placeholder="Password"
+                placeholder="Mật khẩu..."
                 autoComplete="current-password"
               />
             </div>
             <div className="login-action">
               <div>
                 <input type="checkbox" className="form-checkbox" />
-                <label className="form-checkbox-text">Remember me</label>
+                <label className="form-checkbox-text">Ghi Nhớ</label>
               </div>
-              <a href="#!">Forgot password?</a>
+              <a href="#!">Quên mật khẩu?</a>
             </div>
 
             <div className="action-login">
-              <button className="btn-login">Login</button>
+              <button className="btn-login">Đăng nhập</button>
               <p className="login-text">
-                Don't have an account?
-                <a href="#!" className="login-register">
-                  Register
-                </a>
+                Bạn chưa có tài khoản?
+                <Link to="/register" className="login-register">
+                  Đăng ký ngay
+                </Link>
               </p>
             </div>
           </form>
