@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 Card.propTypes = {
@@ -9,23 +8,17 @@ Card.propTypes = {
 };
 
 function Card(props) {
-  const { movies } = props;
+  const { data } = props;
   return (
-    <>
-      {movies.map((movie) => (
-        <div className="card">
-          <Link to="/movie/id">
-            <div key={movie.id}>
-              <img className="card-image" src={movie.poster_url} alt="Phim" />
-              <div className="card-desc">
-                <span className="card-name">{movie.name}</span>
-                <span className="card-info">{movie.year}</span>
-              </div>
-            </div>
-          </Link>
+    <div className="card">
+      <div>
+        <img className="card-image" src={data.poster_url} alt={data.name} />
+        <div className="card-desc">
+          <span className="card-name">{data.name}</span>
+          <span className="card-info">{data.year}</span>
         </div>
-      ))}
-    </>
+      </div>
+    </div>
   );
 }
 

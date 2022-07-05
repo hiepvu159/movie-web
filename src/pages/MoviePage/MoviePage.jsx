@@ -1,26 +1,47 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ReactHlsPlayer from "react-hls-player";
 import { FaRegLightbulb } from "react-icons/fa";
-import PropTypes from "prop-types";
+import axios from "axios";
+import { useParams } from "react-router";
 import SideBarUser from "../../components/SideBarUser";
 import InfoMovie from "../../components/InfoMovie";
 import CommentBox from "../../components/CommentBox";
 
 import "./MoviePage.css";
-MoviePage.propTypes = {};
 
 function MoviePage(props) {
+  const param = useParams();
+  const { id } = param;
+  const [movie, setMovie] = useState([]);
+  useEffect(() => {
+    const getMovie = async (id) => {
+      try {
+        await axios.get(`/movies/find/${id}`).then((res) => {
+          setMovie(res.data);
+          console.log(res.data);
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getMovie(id);
+  }, [id]);
+  const { episodes } = movie;
+  console.log(episodes);
   return (
     <>
-      <InfoMovie />
+      <InfoMovie data={movie} />
       <div className="main">
         <div className="main-content">
           <div className="movie-player">
-            <ReactHlsPlayer
-              src="https://kd.hd-bophim.com/20220621/15089_6a803cec/index.m3u8"
-              autoPlay={false}
-              controls={true}
-            />
+            {episodes?.map((e) => (
+              <ReactHlsPlayer
+                key={e._id}
+                src={e.link}
+                autoPlay={false}
+                controls={true}
+              />
+            ))}
           </div>
 
           <div className="user-action">
@@ -33,10 +54,10 @@ function MoviePage(props) {
           <div className="movie-episodes">
             <span className="movie-episodes-title">Chọn tập phim</span>
             <div className="movie-episodes-list">
-              <button className="movie-episodes-item">1</button>
-              <button className="movie-episodes-item">2</button>
-              <button className="movie-episodes-item">3</button>
-              <button className="movie-episodes-item">4</button>
+              <button className="movie-episodes-item">2</button>;
+              {episodes?.map((e) => {
+                <button className="movie-episodes-item">{e.name}</button>;
+              })}
             </div>
           </div>
           <CommentBox />

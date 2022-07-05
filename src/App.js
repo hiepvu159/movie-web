@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import LandingPage from "./pages/LandingPage";
 import MoviePage from "./pages/MoviePage";
 import Layout from "./layout/LayoutUser/Layout";
+import Admin from "./layout/LayoutAdmin/Admin";
 import AllMovie from "./pages/AllMovie";
 import Register from "./pages/Register";
 import SearchResult from "./pages/SearchResult";
@@ -16,20 +17,23 @@ import EditMovie from "./pages/ManageMovie/EditMovie/EditMovie";
 function App() {
   return (
     <div className="App">
-      <Layout>
-        <Routes>
-          <Route index element={<HomeUser />} />
-          <Route path="/admin/movie/create" element={<CreateMovie />} />
-          <Route path="/admin/movie/edit/:id" element={<EditMovie />} />
-          <Route path="/admin/movie" element={<Manage />} />
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<HomeUser />} />
           <Route path="/register" element={<Register />} />
           <Route path="/results/movie" element={<SearchResult />} />
           <Route path="/movies" element={<AllMovie />} />
+          <Route path="/movies/:id" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/movie/id" element={<LandingPage />} />
-          <Route path="/movie/id/watch" element={<MoviePage />} />
-        </Routes>
-      </Layout>
+          <Route path="/movies/:id/watch" element={<MoviePage />} />
+        </Route>
+        <Route element={<Admin />}>
+          <Route path="/admin" element={<HomeAdmin />} />
+          <Route path="/admin/movie/create" element={<CreateMovie />} />
+          <Route path="/admin/movie/edit/:id" element={<EditMovie />} />
+          <Route path="/admin/movie" element={<Manage />} />
+        </Route>
+      </Routes>
     </div>
   );
 }

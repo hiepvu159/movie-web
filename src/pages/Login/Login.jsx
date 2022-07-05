@@ -1,27 +1,38 @@
-import React from "react";
-import PropTypes from "prop-types";
-import login from "../../assets/login.png";
-
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { loginUser } from "../../services/auth";
 import ButtonGoogle from "../../components/ButtonGoogle";
 import ButtonFaceBook from "../../components/ButtonFacebook";
+import login from "../../assets/login.png";
 import "./Login.css";
-import { Link } from "react-router-dom";
 
-Login.propTypes = {};
+function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const newUser = {
+      email: email,
+      password: password,
+    };
 
-function Login(props) {
+    await loginUser(newUser, dispatch, navigate);
+  };
+
   return (
     <div className="login">
       <div className="login-main">
         <div className="login-main-bg">
-          <img src={login} className="bg" alt="Sample image" />
+          <img src={login} className="bg" alt="Sample" />
         </div>
         <div className="login-main-form">
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="login-social">
               <p className="login-social-text">Đăng nhập bằng</p>
               <ButtonFaceBook />
-
               <ButtonGoogle />
             </div>
 
@@ -34,7 +45,8 @@ function Login(props) {
                 type="text"
                 className="form-email"
                 placeholder="Email..."
-                autoComplete="user-name"
+                autoComplete="off"
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
 
@@ -43,7 +55,8 @@ function Login(props) {
                 type="password"
                 className="form-password"
                 placeholder="Mật khẩu..."
-                autoComplete="current-password"
+                autoComplete="off"
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <div className="login-action">
@@ -55,7 +68,12 @@ function Login(props) {
             </div>
 
             <div className="action-login">
-              <button className="btn-login">Đăng nhập</button>
+              <button
+                className="px-7 py-3 bg-black text-white font-medium text-sm rounded shadow-md hover:bg-red-500"
+                type="submit"
+              >
+                Đăng nhập
+              </button>
               <p className="login-text">
                 Bạn chưa có tài khoản?
                 <Link to="/register" className="login-register">

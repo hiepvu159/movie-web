@@ -2,44 +2,50 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-InfoMovie.propTypes = {};
+InfoMovie.propTypes = {
+  name: PropTypes.string,
+  thumb_url: PropTypes.string,
+  poster_url: PropTypes.string,
+  origin_name: PropTypes.string,
+  time: PropTypes.string,
+  category: PropTypes.array,
+  type: PropTypes.string,
+  country: PropTypes.string,
+  director: PropTypes.string,
+  actor: PropTypes.array,
+  year: PropTypes.number,
+};
 
 function InfoMovie(props) {
+  const { data } = props;
   return (
     <div className="background-info">
-      <img
-        src="https://i1-giaitri.vnecdn.net/2022/05/12/doctor-strange-2.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=wJ222WrUVceW0oQR8-Pbhw"
-        alt="placeholder"
-        className="thumbnail"
-      />
+      <img src={data.thumb_url} alt="placeholder" className="thumbnail" />
       <div className="content-header">
-        <img
-          src="https://bloganchoi.com/wp-content/uploads/2022/05/dr-strange-poster.jpg"
-          alt="poster"
-          className="content-poster"
-        />
+        <img src={data.poster_url} alt="poster" className="content-poster" />
         <div className="content-info">
           <div className="content-info-movie">
             <div className="name-movie">
-              <section className="content-name">
-                Phù Thủy Tối Thượng Trong Đa Vũ Trụ Hỗn Loạn
-              </section>
+              <section className="content-name">{data.name}</section>
               <section className="content-origin_name">
-                Doctor Strange in the Multiverse of Madness
+                {data.origin_name}
               </section>
             </div>
-            <section className="content-text">Thời lượng: 120 phút</section>
 
-            <section className="content-text">Danh mục: Phim chiếu rạp</section>
+            <section className="content-text">Danh mục: {data.type}</section>
             <section className="content-text">
-              Thể loại: Khoa học viễn tưởng
+              Thể loại: {data.category}
             </section>
-            <section className="content-text">Quốc gia: Mỹ</section>
-            <section className="content-text">Năm phát hành: 2022</section>
-            <section className="content-text">Diễn viên:</section>
-            <section className="content-text">Đạo diễn</section>
+            <section className="content-text">Quốc gia: {data.country}</section>
+            <section className="content-text">
+              Năm phát hành: {data.year}
+            </section>
+            <section className="content-text">Diễn viên:{data.actor}</section>
+            <section className="content-text">
+              Đạo diễn: {data.director}
+            </section>
 
-            <Link to="/movie/id/watch" className="btn-play">
+            <Link to={`/movies/${data._id}/watch`} className="btn-play">
               Xem phim
             </Link>
           </div>

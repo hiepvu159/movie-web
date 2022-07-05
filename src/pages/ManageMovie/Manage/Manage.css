@@ -12,9 +12,6 @@
   .action-name {
     @apply font-bold text-2xl;
   }
-  .btn-create {
-    @apply text-white bg-indigo-800 px-3 py-2 rounded-lg hover:bg-red-500;
-  }
   .movie-table {
     @apply w-full;
   }
@@ -32,6 +29,9 @@
   }
   .col-item {
     @apply text-center py-4 mx-5 w-1/4;
+  }
+  .btn-create {
+    @apply text-white bg-indigo-800 px-3 py-2 rounded-lg hover:bg-red-500;
   }
   .icon-edit {
     @apply mr-2 text-orange-400 hover:text-rose-500;

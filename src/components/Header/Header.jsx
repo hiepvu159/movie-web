@@ -1,9 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { IoLogOutOutline } from "react-icons/io5";
+
 import logo from "../../assets/logo.png";
 import "./Header.css";
+import { logoutUser } from "../../services/auth";
 
 function Header() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const currentUser = useSelector((state) => {
+    return state.auth.login.currentUser;
+  });
+  const handleLogOut = () => {
+    logoutUser(dispatch, navigate);
+  };
   return (
     <>
       <header className="header">
@@ -21,9 +33,18 @@ function Header() {
             </Link>
           </div>
         </div>
-        <Link to="/login" className="header-login">
-          Đăng nhập
-        </Link>
+        {currentUser ? (
+          <div className="flex">
+            <div className="header-login">{currentUser.username}</div>
+            <Link to="/" onClick={handleLogOut} className="">
+              <IoLogOutOutline className="my-0 mx-auto mt-[3.3rem] ml-2 text-white text-2xl" />
+            </Link>
+          </div>
+        ) : (
+          <Link to="/login" className="header-login">
+            Đăng nhập
+          </Link>
+        )}
       </header>
     </>
   );

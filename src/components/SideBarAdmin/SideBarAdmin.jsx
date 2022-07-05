@@ -1,6 +1,4 @@
 import React from "react";
-import logo from "../../assets/logo.png";
-
 import {
   HiOutlineChartBar,
   HiOutlineUserGroup,
@@ -13,8 +11,7 @@ function SideBarAdmin() {
   return (
     <nav className="sidebar-admin">
       <div className="sidebar-admin-banner">
-        <img src={logo} alt="logo" className="admin-logo" />
-        <span className="admin-title">MOVIE</span>
+        <span className="admin-title">ADMIN</span>
       </div>
       <div className="sidebar-admin-category">
         <div className="admin-category">

@@ -10,8 +10,6 @@ HomeAdmin.propTypes = {};
 function HomeAdmin(props) {
   return (
     <div className="flex">
-      <SideBarAdmin />
-      <HeaderAdmin />
       {/* <div className="flex flex-col w-full">
        
       </div> */}

@@ -10,7 +10,7 @@ function Search() {
           id="default-search"
           className="search-box"
           placeholder="Điền tên phim muốn tìm kiếm. . . . "
-          autocomplete="off"
+          autoComplete="off"
         />
         <Link to="/results/movie" className="btn-search">
           Search

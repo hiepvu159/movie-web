@@ -7,7 +7,7 @@
     @apply flex;
   }
   .main-content {
-    @apply px-10 py-5;
+    @apply w-3/4 px-10 py-5;
   }
   .movie-poster {
     @apply h-[10rem] object-cover;
