@@ -4,6 +4,6 @@
 
 @layer components {
   .dropdown {
-    @apply text-base;
+    @apply w-1/4 h-10 text-base;
   }
 }

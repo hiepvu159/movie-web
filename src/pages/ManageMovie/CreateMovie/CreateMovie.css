@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .form-add {
+    @apply flex flex-col my-2;
+  }
+  .form-movie {
+    @apply w-full h-10 border border-solid border-gray-300 rounded;
+  }
+}

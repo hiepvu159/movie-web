@@ -10,7 +10,7 @@ import AllMovie from "./pages/AllMovie";
 import Register from "./pages/Register";
 import SearchResult from "./pages/SearchResult";
 import HomeAdmin from "./pages/HomeAdmin";
-import CreateMovie from "./pages/ManageMovie/CreateMovie/CreateMovie";
+import CreateMovie from "./pages/ManageMovie/CreateMovie";
 import Manage from "./pages/ManageMovie/Manage";
 import EditMovie from "./pages/ManageMovie/EditMovie/EditMovie";
 
