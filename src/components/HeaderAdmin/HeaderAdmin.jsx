@@ -3,14 +3,14 @@ import { HiOutlineSearch } from "react-icons/hi";
 import { FaPowerOff } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { logoutUser } from "../../services/auth";
+// import { logoutUser } from "../../services/auth";
 
 function HeaderAdmin() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const admin = useSelector((state) => state.auth.login.currentUser);
   const handleLogOut = () => {
-    logoutUser(dispatch, navigate);
+    // logoutUser(dispatch, navigate);
   };
   return (
     <nav className="nav-admin">

@@ -1,40 +1,17 @@
 import axios from "axios";
-import {
-  loginPending,
-  loginSuccess,
-  loginFailed,
-  logout,
-  registerPending,
-  registerSuccess,
-  registerFailed,
-} from "../redux/authSlice";
+import { logout } from "../redux/authSlice";
 
-export const loginUser = async (user, dispatch, navigate) => {
-  dispatch(loginPending());
-  try {
-    const res = await axios.post(`/auth/login`, user);
-    localStorage.setItem("token", res.data.accessToken);
-    if (res.data.isAdmin === true) {
-      navigate("/admin");
-    } else navigate("/");
-    dispatch(loginSuccess(res.data));
-  } catch (error) {
-    dispatch(loginFailed(error));
-  }
+export const loginUser = async (user) => {
+  const res = await axios.post(`/auth/login`, user);
+  localStorage.setItem("user", JSON.stringify(res.data));
 };
 
 export const logoutUser = async (dispatch, navigate) => {
+  localStorage.setItem("user", null);
   dispatch(logout());
-  navigate("/");
+  navigate("/login");
 };
 
-export const registerUser = async (user, dispatch, navigate) => {
-  dispatch(registerPending());
-  try {
-    await axios.post(`/auth/register`, user);
-    dispatch(registerSuccess());
-    navigate("/login");
-  } catch (error) {
-    dispatch(registerFailed());
-  }
+export const registerUser = async (user) => {
+  await axios.post(`/auth/register`, user);
 };

@@ -18,7 +18,6 @@ function MoviePage(props) {
       try {
         await axios.get(`/movies/find/${id}`).then((res) => {
           setMovie(res.data);
-          console.log(res.data);
         });
       } catch (error) {
         console.log(error);
@@ -27,7 +26,7 @@ function MoviePage(props) {
     getMovie(id);
   }, [id]);
   const { episodes } = movie;
-  console.log(episodes);
+
   return (
     <>
       <InfoMovie data={movie} />

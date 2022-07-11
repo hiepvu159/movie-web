@@ -1,25 +1,51 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { loginUser } from "../../services/auth";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { getUser } from "../../redux/authSlice";
 import ButtonGoogle from "../../components/ButtonGoogle";
 import ButtonFaceBook from "../../components/ButtonFacebook";
 import login from "../../assets/login.png";
 import "./Login.css";
 
 function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // const [userName, setUserName] = useState("");
+  // const [password, setPassword] = useState("");
+
+  const schema = yup.object().shape({
+    username: yup
+      .string()
+      .required("Vui lòng nhập username")
+      .max(16, "Tên tài khoản tối đa 16 ký tự")
+      .min(5, "Tên tài khoản tối thiểu 5 ký tự"),
+    password: yup
+      .string()
+      .required("Vui lòng nhập mật khẩu")
+      .max(20, "Mật khẩu tối đa 20 ký tự")
+      .min(6, "Mật khẩu tối thiểu 6 kí tự"),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(schema) });
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+
+  const onLoginSubmit = async (e) => {
     const newUser = {
-      email: email,
-      password: password,
+      username: e.username,
+      password: e.password,
     };
 
-    await loginUser(newUser, dispatch, navigate);
+    await dispatch(getUser(newUser));
+    const currentUser = JSON.parse(localStorage.getItem("user"));
+    currentUser.isAdmin ? navigate("/admin") : navigate("/");
   };
 
   return (
@@ -29,7 +55,7 @@ function Login() {
           <img src={login} className="bg" alt="Sample" />
         </div>
         <div className="login-main-form">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit(onLoginSubmit)}>
             <div className="login-social">
               <p className="login-social-text">Đăng nhập bằng</p>
               <ButtonFaceBook />
@@ -44,10 +70,13 @@ function Login() {
               <input
                 type="text"
                 className="form-email"
-                placeholder="Email..."
+                placeholder="Tên tài khoản"
                 autoComplete="off"
-                onChange={(e) => setEmail(e.target.value)}
+                {...register("username")}
               />
+              {errors.username && (
+                <p className="error">{errors.username?.message}</p>
+              )}
             </div>
 
             <div className="login-form">
@@ -56,15 +85,11 @@ function Login() {
                 className="form-password"
                 placeholder="Mật khẩu..."
                 autoComplete="off"
-                onChange={(e) => setPassword(e.target.value)}
+                {...register("password")}
               />
-            </div>
-            <div className="login-action">
-              <div>
-                <input type="checkbox" className="form-checkbox" />
-                <label className="form-checkbox-text">Ghi Nhớ</label>
-              </div>
-              <a href="#!">Quên mật khẩu?</a>
+              {errors.password && (
+                <p className="error">{errors.password?.message}</p>
+              )}
             </div>
 
             <div className="action-login">

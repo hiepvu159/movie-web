@@ -1,24 +1,52 @@
 import React, { useState } from "react";
 import login from "../../assets/login.png";
-import { useDispatch } from "react-redux";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
-import { registerUser } from "../../services/auth";
+import { registerNewUser } from "../../redux/registerSlice";
 
 function Register(props) {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const schema = yup.object().shape({
+    username: yup
+      .string()
+      .required("Vui lòng nhập tên tài khoản")
+      .max(16, "Tên tài khoản tối đa 16 ký tự")
+      .min(5, "Tên tài khoản tối thiểu 5 ký tự"),
+    name: yup
+      .string()
+      .required("Vui lòng nhập tên người dùng")
+      .max(20, "Tên người dùng tối đa 20 ký tự")
+      .min(3, "Tên người dùng tối thiểu 3 ký tự"),
+    password: yup
+      .string()
+      .required("Vui lòng nhập mật khẩu")
+      .max(20, "Mật khẩu tối đa 20 ký tự")
+      .min(6, "Mật khẩu tối thiểu 6 kí tự"),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(schema) });
+
+  const onRegisterSubmit = async (e) => {
     const newUser = {
-      email: email,
-      username: username,
-      password: password,
+      name: e.name,
+      username: e.username,
+      password: e.password,
     };
-    await registerUser(newUser, dispatch, navigate);
+    try {
+      await registerNewUser(newUser);
+      alert("thanh cong");
+      navigate("/login");
+    } catch (error) {
+      alert("K thanh cong");
+    }
   };
   return (
     <div className="login">
@@ -28,24 +56,28 @@ function Register(props) {
         </div>
         <div className="login-main-form">
           <p className="register-title">Đăng ký</p>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit(onRegisterSubmit)}>
             <div className="login-form">
               <input
                 type="text"
                 className="form-email"
                 placeholder="Tên người dùng..."
                 autoComplete="off"
-                onChange={(e) => setUsername(e.target.value)}
+                {...register("name")}
               />
+              {errors.name && <p className="error">{errors.name?.message}</p>}
             </div>
             <div className="login-form">
               <input
                 type="text"
                 className="form-email"
-                placeholder="Email...."
+                placeholder="Tên tài khoản"
                 autoComplete="off"
-                onChange={(e) => setEmail(e.target.value)}
+                {...register("username")}
               />
+              {errors.username && (
+                <p className="error">{errors.username?.message}</p>
+              )}
             </div>
 
             <div className="login-form">
@@ -54,8 +86,11 @@ function Register(props) {
                 className="form-password"
                 placeholder="Mật khẩu..."
                 autoComplete="off"
-                onChange={(e) => setPassword(e.target.value)}
+                {...register("password")}
               />
+              {errors.password && (
+                <p className="error">{errors.password?.message}</p>
+              )}
             </div>
             <div className="flex justify-between">
               <div className="action-login">

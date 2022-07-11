@@ -1,57 +1,45 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { loginUser } from "../services/auth";
 
-const initialState = {
-  login: {
-    currentUser: null,
-    isLoading: false,
-    error: false,
-  },
-  register: {
-    isLoading: false,
-    error: false,
-    success: false,
-  },
-};
+export const getUser = createAsyncThunk(
+  "user/login",
+  async (user, thunkAPI) => {
+    try {
+      const currentUser = await loginUser(user);
+      return currentUser;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
 
 const authSlice = createSlice({
   name: "auth",
-  initialState,
+  initialState: {
+    currentUser: {},
+    isLoading: false,
+    error: false,
+  },
   reducers: {
-    loginPending(state) {
-      state.login.isLoading = true;
-    },
-    loginSuccess(state, action) {
-      state.login.currentUser = action.payload;
-      state.login.isLoading = false;
-    },
-    loginFailed(state) {
-      state.login.error = true;
-      state.login.isLoading = false;
-    },
     logout(state) {
-      state.login.currentUser = null;
+      state.currentUser = null;
     },
-    registerPending(state) {
-      state.register.isLoading = true;
+  },
+  extraReducers: {
+    [getUser.pending]: (state) => {
+      state.isLoading = true;
     },
-    registerSuccess(state) {
-      state.register.success = true;
-      state.register.isLoading = false;
+    [getUser.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.currentUser = action.payload;
     },
-    registerFailed(state) {
-      state.register.error = true;
-      state.register.isLoading = false;
+    [getUser.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.error = action.error;
     },
   },
 });
 
-export const {
-  loginPending,
-  loginSuccess,
-  loginFailed,
-  logout,
-  registerPending,
-  registerSuccess,
-  registerFailed,
-} = authSlice.actions;
+export const { logout } = authSlice.actions;
+
 export default authSlice.reducer;

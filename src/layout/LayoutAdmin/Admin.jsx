@@ -5,12 +5,9 @@ import SideBarAdmin from "../../components/SideBarAdmin";
 
 function Layout(props) {
   return (
-    <div className="flex">
+    <div className="w-full flex">
       <SideBarAdmin />
-      <div className="w-full flex flex-col">
-        <HeaderAdmin />
-        <Outlet />
-      </div>
+      <Outlet />
     </div>
   );
 }

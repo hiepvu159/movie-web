@@ -9,22 +9,21 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
-import { deleteMovie, getMovies } from "../../../services/movie";
-import "./Manage.css";
+import { deleteUser, getUsers } from "../../../services/user";
 
-function Manage() {
-  const [movies, setMovies] = useState([]);
+function ManageUser() {
+  const [users, setUsers] = useState("");
 
   useEffect(() => {
-    getMovies(setMovies);
+    getUsers(setUsers);
+    console.log(users);
   }, []);
-
   return (
     <div className="w-full">
       <div className="manage-movie-main">
         <div className="main-title">
           <span className="action-name">Quản lý</span>
-          <Link to="/admin/movie/create">
+          <Link to="/admin/user/create">
             <button className="btn-create">Tạo mới</button>
           </Link>
         </div>
@@ -34,48 +33,39 @@ function Manage() {
             <Table aria-label="customized table">
               <TableHead>
                 <TableRow>
-                  <StyledTableCell align="left">Tên phim</StyledTableCell>
-                  <StyledTableCell align="left">Thể loại</StyledTableCell>
-                  <StyledTableCell align="left">Loại phim</StyledTableCell>
-                  <StyledTableCell align="left">Quốc Gia</StyledTableCell>
-                  <StyledTableCell align="left">Năm</StyledTableCell>
-                  <StyledTableCell align="left">Tình trạng</StyledTableCell>
-                  <StyledTableCell align="left">Ngày đăng</StyledTableCell>
-                  <StyledTableCell align="left"></StyledTableCell>
+                  <StyledTableCell align="left">
+                    Tên người dùng{" "}
+                  </StyledTableCell>
+                  <StyledTableCell align="left">Email</StyledTableCell>
+                  <StyledTableCell align="left">Admin</StyledTableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {movies.map((movie) => (
-                  <StyledTableRow key={movie._id} id={movie._id}>
-                    <StyledTableCell align="left">{movie.name}</StyledTableCell>
+                {/* {users.map((user) => (
+                  <StyledTableRow key={user._id}>
+                    <StyledTableCell align="left">{user.name}</StyledTableCell>
+                    <StyledTableCell align="left">{user.email}</StyledTableCell>
                     <StyledTableCell align="left">
-                      {movie.category}
+                      {user.isAdmin}
                     </StyledTableCell>
-                    <StyledTableCell align="left">{movie.type}</StyledTableCell>
+
                     <StyledTableCell align="left">
-                      {movie.country}
-                    </StyledTableCell>
-                    <StyledTableCell align="left">{movie.year}</StyledTableCell>
-                    <StyledTableCell align="left">
-                      {movie.episode_current}
-                    </StyledTableCell>
-                    <StyledTableCell align="left">{movie.time}</StyledTableCell>
-                    <StyledTableCell align="left">
-                      <Link to={`/admin/movie/edit/${movie._id}`}>
+                      <Link to={`/admin/user/edit/${user._id}`}>
                         <button>
                           <AiFillEdit className="icon-edit" />
                         </button>
                       </Link>
                       <button
                         onClick={() => {
-                          deleteMovie(movie._id);
+                          deleteUser(user._id);
+                          window.location.reload();
                         }}
                       >
                         <AiFillDelete className="icon-delete" />
                       </button>
                     </StyledTableCell>
                   </StyledTableRow>
-                ))}
+                ))} */}
               </TableBody>
             </Table>
           </TableContainer>
@@ -85,7 +75,7 @@ function Manage() {
   );
 }
 
-export default Manage;
+export default ManageUser;
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {

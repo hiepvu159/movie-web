@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { getMovies } from "../../services/movie";
 import { Link } from "react-router-dom";
 import Card from "../../components/Card";
-import DropdownBox from "../../components/DropdownBox";
 
 function AllMovie() {
   const [movies, setMovies] = useState([]);
@@ -18,9 +17,7 @@ function AllMovie() {
           </Link>
         ))}
       </div>
-      <div className="filter">
-        <DropdownBox />
-      </div>
+      <div className="filter"></div>
     </div>
   );
 }

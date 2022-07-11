@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { TextField } from "@mui/material";
-import { Box } from "@mui/system";
+import React, { useState, useEffect } from "react";
 import Select from "react-select";
+import { InputLabel, MenuItem, TextField } from "@mui/material";
+import { Box } from "@mui/system";
 import { addMovies } from "../../../services/movie";
-import "./CreateMovie.css";
-import { useEffect } from "react";
 import { getCategory } from "../../../services/category";
+import "./CreateMovie.css";
+import { useNavigate } from "react-router-dom";
 
 export default function CreateMovie() {
   const [name, setName] = useState("");
@@ -25,12 +25,14 @@ export default function CreateMovie() {
   const [time, setTime] = useState("");
   const [link, setLink] = useState("");
   const [categories, setCategories] = useState([]);
-  const token = localStorage.getItem("token");
-
+  const navigate = useNavigate();
   useEffect(() => {
     getCategory(setCategories);
   }, []);
 
+  const handleChange = (e) => {
+    setCategory(e.target.value);
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newMovie = {
@@ -51,12 +53,11 @@ export default function CreateMovie() {
       category: category,
       link: link,
     };
-    addMovies(newMovie);
-    console.log("ok");
+    addMovies(newMovie, navigate);
   };
 
   return (
-    <div className="px-3">
+    <div className="w-full h-screen px-3">
       <div className="font-bold text-3xl pt-3 pl-1">Tạo Phim Mới</div>
       <div className=" py-5">
         <Box
@@ -99,12 +100,13 @@ export default function CreateMovie() {
                 className="w-1/3"
                 onChange={(e) => setType(e.target.value)}
               />
-
               <Select
                 isMulti
                 options={categories}
                 className="w-full z-10 mt-2"
-                onChange={(e) => setCategory(e.va)}
+                onChange={(e) =>
+                  setCategory(Array.isArray(e) ? e.map((x) => x.label) : [])
+                }
               />
               <TextField
                 required

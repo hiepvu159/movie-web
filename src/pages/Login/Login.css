@@ -31,7 +31,7 @@
     @apply text-center font-semibold mx-4 mb-0;
   }
   .login-form {
-    @apply mb-6;
+    @apply mb-4;
   }
   .form-email {
     @apply block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none;
