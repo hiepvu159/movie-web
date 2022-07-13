@@ -1,4 +1,4 @@
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 import HomeUser from "./pages/HomeUser";
 import Login from "./pages/Login";
