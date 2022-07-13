@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -11,9 +11,6 @@ import login from "../../assets/login.png";
 import "./Login.css";
 
 function Login() {
-  // const [userName, setUserName] = useState("");
-  // const [password, setPassword] = useState("");
-
   const schema = yup.object().shape({
     username: yup
       .string()
@@ -36,16 +33,20 @@ function Login() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { success } = useSelector((state) => state.auth);
 
   const onLoginSubmit = async (e) => {
     const newUser = {
       username: e.username,
       password: e.password,
     };
-
-    await dispatch(getUser(newUser));
-    const currentUser = JSON.parse(localStorage.getItem("user"));
-    currentUser.isAdmin ? navigate("/admin") : navigate("/");
+    const currentUser = await dispatch(getUser(newUser));
+    if (success) {
+      alert("Thanh cong");
+      currentUser.payload.isAdmin ? navigate("/admin/movie") : navigate("/");
+    } else {
+      alert("Khong thanh cong");
+    }
   };
 
   return (
@@ -59,7 +60,7 @@ function Login() {
             <div className="login-social">
               <p className="login-social-text">Đăng nhập bằng</p>
               <ButtonFaceBook />
-              <ButtonGoogle />
+              {/* <ButtonGoogle /> */}
             </div>
 
             <div className="separate">

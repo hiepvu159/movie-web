@@ -1,13 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { styled } from "@mui/material/styles";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { deleteMovie, getMovies } from "../../../services/movie";
 import "./Manage.css";
@@ -30,55 +22,43 @@ function Manage() {
         </div>
 
         <div>
-          <TableContainer component={Paper}>
-            <Table aria-label="customized table">
-              <TableHead>
-                <TableRow>
-                  <StyledTableCell align="left">Tên phim</StyledTableCell>
-                  <StyledTableCell align="left">Thể loại</StyledTableCell>
-                  <StyledTableCell align="left">Loại phim</StyledTableCell>
-                  <StyledTableCell align="left">Quốc Gia</StyledTableCell>
-                  <StyledTableCell align="left">Năm</StyledTableCell>
-                  <StyledTableCell align="left">Tình trạng</StyledTableCell>
-                  <StyledTableCell align="left">Ngày đăng</StyledTableCell>
-                  <StyledTableCell align="left"></StyledTableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {movies.map((movie) => (
-                  <StyledTableRow key={movie._id} id={movie._id}>
-                    <StyledTableCell align="left">{movie.name}</StyledTableCell>
-                    <StyledTableCell align="left">
-                      {movie.category}
-                    </StyledTableCell>
-                    <StyledTableCell align="left">{movie.type}</StyledTableCell>
-                    <StyledTableCell align="left">
-                      {movie.country}
-                    </StyledTableCell>
-                    <StyledTableCell align="left">{movie.year}</StyledTableCell>
-                    <StyledTableCell align="left">
-                      {movie.episode_current}
-                    </StyledTableCell>
-                    <StyledTableCell align="left">{movie.time}</StyledTableCell>
-                    <StyledTableCell align="left">
-                      <Link to={`/admin/movie/edit/${movie._id}`}>
-                        <button>
-                          <AiFillEdit className="icon-edit" />
-                        </button>
-                      </Link>
-                      <button
-                        onClick={() => {
-                          deleteMovie(movie._id);
-                        }}
-                      >
-                        <AiFillDelete className="icon-delete" />
+          <table className="movie-table">
+            <thead className="table-head">
+              <tr className="flex w-full">
+                <th className="col-name">Tên phim</th>
+                <th className="col-name">Thể loại</th>
+                <th className="col-name">Loại phim</th>
+                <th className="col-name">Tình trạng</th>
+                <th className="col-name ">Năm phát hành</th>
+                <th className="col-name action ">Action</th>
+              </tr>
+            </thead>
+            <tbody className="table-body">
+              {movies.map((movie) => (
+                <tr className="flex w-full mb-4" key={movie._id}>
+                  <td className="col-item ">{movie.name}</td>
+                  <td className="col-item">{movie.category}</td>
+                  <td className="col-item">{movie.type}</td>
+                  <td className="col-item">{movie.status}</td>
+                  <td className="col-item">{movie.year}</td>
+                  <td className="col-item">
+                    <Link to={`/admin/movie/edit/${movie._id}`}>
+                      <button>
+                        <AiFillEdit className="icon-edit" />
                       </button>
-                    </StyledTableCell>
-                  </StyledTableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
+                    </Link>
+                    <button
+                      onClick={() => {
+                        deleteMovie(movie._id);
+                      }}
+                    >
+                      <AiFillDelete className="icon-delete" />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -86,23 +66,3 @@ function Manage() {
 }
 
 export default Manage;
-
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-  },
-}));
-
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  "&:nth-of-type(odd)": {
-    backgroundColor: theme.palette.action.hover,
-  },
-  // hide last border
-  "&:last-child td, &:last-child th": {
-    border: 0,
-  },
-}));

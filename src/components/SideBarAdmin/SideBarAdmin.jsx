@@ -1,5 +1,4 @@
 import React from "react";
-import { FaPowerOff } from "react-icons/fa";
 import {
   HiOutlineChartBar,
   HiOutlineUserGroup,
@@ -7,14 +6,14 @@ import {
   HiOutlineServer,
 } from "react-icons/hi";
 import { IoLogOutOutline } from "react-icons/io5";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logoutUser } from "../../services/auth";
 
 function SideBarAdmin() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const currentUser = useSelector((state) => state.auth.currentUser);
   const handleLogOut = () => {
     logoutUser(dispatch, navigate);
   };
@@ -25,10 +24,6 @@ function SideBarAdmin() {
           <span className="admin-title">ADMIN</span>
         </div>
         <div className="sidebar-admin-category">
-          <div className="admin-category">
-            <HiOutlineChartBar className="admin-category-icon" />
-            <span className="">Dashbroad</span>
-          </div>
           <Link to="/admin/user">
             <div className="admin-category">
               <HiOutlineUserGroup className="admin-category-icon" />
@@ -48,8 +43,8 @@ function SideBarAdmin() {
         </div>
       </div>
       <div className="flex justify-center mb-5">
-        <div className="mt-1 text-white text-xl">admin</div>
-        <Link to="/" onClick={handleLogOut}>
+        <div className="mb-1 text-white text-xl">{currentUser.name}</div>
+        <Link to="/login" onClick={handleLogOut}>
           <IoLogOutOutline className="admin-logout" />
         </Link>
       </div>

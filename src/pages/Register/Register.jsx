@@ -40,19 +40,15 @@ function Register(props) {
       username: e.username,
       password: e.password,
     };
-    try {
-      await registerNewUser(newUser);
-      alert("thanh cong");
-      navigate("/login");
-    } catch (error) {
-      alert("K thanh cong");
-    }
+
+    // await registerNewUser(newUser);
+    // navigate("/login");
   };
   return (
     <div className="login">
       <div className="login-main">
         <div className="login-main-bg">
-          <img src={login} className="bg" alt="Sample image" />
+          <img src={login} className="bg" alt="pic" />
         </div>
         <div className="login-main-form">
           <p className="register-title">Đăng ký</p>

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Search from "../../components/Search";
 import ListCard from "../../components/ListCard";
 import Banner from "../../components/Banner";
+import { Outlet } from "react-router-dom";
 
 HomeUser.propTypes = {};
 

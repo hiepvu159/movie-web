@@ -4,13 +4,10 @@
 
 @layer components {
   .sidebar-admin {
-    @apply flex flex-col justify-between w-[17rem] h-auto bg-stone-900;
+    @apply flex flex-col justify-between fixed h-screen bg-stone-900;
   }
   .sidebar-admin-banner {
     @apply flex justify-center;
-  }
-  .admin-logo {
-    @apply w-24;
   }
   .sidebar-admin-category {
     @apply mt-5;
@@ -23,5 +20,8 @@
   }
   .admin-category-icon {
     @apply h-5 w-5 mx-2 text-gray-400;
+  }
+  .admin-logout {
+    @apply text-gray-500 w-5 h-full ml-3 hover:text-white;
   }
 }

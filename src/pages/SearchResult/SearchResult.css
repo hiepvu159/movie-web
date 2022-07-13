@@ -4,12 +4,9 @@
 
 @layer components {
   .search-title {
-    @apply pl-[5.9rem] pt-5 mb-4 font-bold text-4xl;
+    @apply pt-5 mb-4 font-bold text-4xl;
   }
-  .search-content-list {
-    @apply flex flex-wrap justify-start px-[5.9rem];
-  }
-  .search-item {
-    @apply px-5;
+  .search-content {
+    @apply flex flex-wrap justify-start items-stretch;
   }
 }

@@ -1,11 +1,10 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 
 function HomeAdmin(props) {
   return (
     <div className="h-screen flex">
-      {/* <div className="flex flex-col w-full">
-       
-      </div> */}
+      <Outlet />
     </div>
   );
 }

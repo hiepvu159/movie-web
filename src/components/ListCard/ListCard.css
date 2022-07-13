@@ -7,8 +7,8 @@
     @apply flex overflow-x-scroll mb-10;
   }
   .scrollbar::-webkit-scrollbar {
-    width: 20px;
-    height: 20px;
+    width: 10px;
+    height: 10px;
   }
 
   .scrollbar::-webkit-scrollbar-track {
